@@ -4,13 +4,13 @@ import StudyButton from "./StudyButton";
 import ViewButton from "./ViewButton";
 
 function Deck({ deck = {} }) {
-  const { name = "", description = "" } = deck;
+  const { id = "", name = "", description = "" } = deck;
   return !deck ? null : (
     <div>
-      {/* we want to render name and description */}
+      {/* we are rendering a deck */}
       <h3>{name} </h3>
       <p> {description} </p>
-      <ViewButton />
+      <ViewButton deckId={id} />
       <StudyButton />
       <DeleteDeckButton />
     </div>
