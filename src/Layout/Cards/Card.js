@@ -1,7 +1,8 @@
 import React from "react";
+import CardList from "./CardList";
 
 function Card() {
-return <div> <h3>  </h3>  </div>;
+return <div> Card </div>;
 
 }
 

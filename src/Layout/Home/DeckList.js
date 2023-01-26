@@ -1,26 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { listDecks } from "../../utils/api";
 import Deck from "../Decks/Deck";
 
 function DeckList() {
   //list of decks from the api call this is where we will store it
-  const [decks, setDecks] = useState([
-    {
-      id: 1,
-      name: "Rendering in React",
-      description:
-        "React's component structure allows for quickly building a complex web application that relies on DOM manipulation. ",
-    },
-    {
-      id: 2,
-      name: "Rendering in poopy",
-      description: "Look I don't make the rules. ",
-    },
-    {
-      id: 3,
-      name: "Rendering in BIGpoopy",
-      description: "I, oh my god what do I do. ",
-    },
-  ]);
+  const [decks, setDecks] = useState([]);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    listDecks(abortController.signal).then(setDecks);
+    return () => {
+      // Cancels any pending request or response
+      abortController.abort();
+    };
+  }, []);
 
   return (
     <div>
