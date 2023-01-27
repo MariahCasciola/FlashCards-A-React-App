@@ -22,11 +22,11 @@ function EditCard() {
 
     // create a submit handler for our cards
     function submitHandler(card) {
-        updateCard(card).then(imDone);
+        updateCard(card).then(cardFormHanlder);
     }
 
     // ? perhaps a done or finish handler.....maybe? 
-    function imDone() {
+    function cardFormHanlder() {
         history.push(`/decks/${deck.id}`);
     };
 
@@ -34,16 +34,16 @@ function EditCard() {
     const cardDisplay = card.id ? (
         <CardForm
             onSubmit={submitHandler}
-            onDone={imDone}
+            onDone={cardFormHanlder}
             deckName={deck.name}
             initialState={card}
             buttonLabelDone="Cancel" 
         />
     ) : (
-        <p>Loading...... 😀</p>
+        <p>Loading...... </p>
     )
 
-    // breadcrumb for the cards
+    // cards breadcrumb
     return (
         <>
             <nav aria-label="breadcrumb">

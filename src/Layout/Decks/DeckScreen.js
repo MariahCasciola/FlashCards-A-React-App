@@ -8,7 +8,7 @@ function DeckScreen() {
   const { deckId } = useParams();
   const [deck, setDeck] = useState({ cards: [] });
 
-  // delete the deck
+  // delete deck handler
   function handleDelete() {
     const confirmed = window.confirm(
       "Delete this deck?\n\nYou will not be able to recover it."
@@ -18,7 +18,7 @@ function DeckScreen() {
     }
   }
 
-  //delete the card
+  //delete card handler
   function deleteCardHandler(cardId) {
     const confirmed = window.confirm(
       "Delete this card?\n\nYou will not be able to recover it."
@@ -42,7 +42,7 @@ function DeckScreen() {
   //   };
   // }, [deckId]);
 
-  //deleteHandlers
+  //the code below is cleaner and doesn't have an abort contoller, trade for the code about if you need to add an abort controller
 
   useEffect(loadDeck, [deckId]);
 
@@ -50,19 +50,7 @@ function DeckScreen() {
     readDeck(deckId).then(setDeck);
   }
 
-  // console.log("cards", deck.cards);
   return (
-    // <div>
-    //   <nav></nav>
-    //   <h4>{deck.name}</h4>
-    //   <p>{deck.description}</p>
-    //   <button> Edit</button>
-    //   <button>Study </button>
-    //   <button>+Add Cards</button>
-    //   <button> Delete </button>
-    //   <CardList deck={deck} onCardDelete={deleteCardHandler} />
-    // </div>
-
     <main className="container deck-view">
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">

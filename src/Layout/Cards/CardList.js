@@ -41,16 +41,6 @@ function CardList({ deck, onCardDelete}) {
       <ul className="list-group">{list}</ul>
     </div>
   );
-
-  //   const { cards = [] } = deck;
-
-  //   return (
-  //     <div>
-  //       {cards.map((card, index) => {
-  //         <Card card={card} key={card.id} />;
-  //       })}
-  //     </div>
-  //   );
 }
 
 export default CardList;
