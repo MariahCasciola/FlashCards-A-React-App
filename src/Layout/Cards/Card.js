@@ -1,9 +1,12 @@
 import React from "react";
-import CardList from "./CardList";
 
-function Card() {
-return <div> Card </div>;
-
+function Card({ card,  }) {
+  return (
+    <div>
+      <p> {card.front}</p>
+      <p> {card.back} </p>
+    </div>
+  );
 }
 
 export default Card;
