@@ -3,10 +3,8 @@ import Header from "./Header";
 import CreateDeckButton from "./Home/CreateDeckButton";
 import DeckList from "./Home/DeckList";
 import NotFound from "./NotFound";
-import DeckScreen from "./Decks/DeckScreen";
-import CreateDeckScreen from "./Decks/CreateDeckScreen";
 import { Route, Switch } from "react-router-dom";
-import StudyScreen from "./Decks/Study/StudyScreen";
+import Decks from "./Decks/index";
 
 function Layout() {
   return (
@@ -21,14 +19,9 @@ function Layout() {
             <DeckList />
           </Route>
 
-          {/* CreateDeckScreen view */}
-          <Route path="/decks/new">
-            <CreateDeckScreen />
-          </Route>
-
-          {/* DeckScreen view */}
-          <Route path="/decks/:deckId">
-            <DeckScreen />
+          {/* Decks view */}
+          <Route path="/decks">
+            <Decks />
           </Route>
 
           {/* NotFound view */}

@@ -1,6 +1,5 @@
 import React from "react";
-import BreadCrumb from "./BreadCrumb";
-import { useRouteMatch } from "react-router-dom";
+import BreadCrumb from "../../BreadCrumb";
 import StudyDeck from "./StudyDeck";
 
 function StudyScreen() {

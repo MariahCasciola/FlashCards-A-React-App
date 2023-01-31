@@ -1,10 +1,25 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import { deleteDeck } from "../../utils/api";
 
-function DeleteDeckButton() {
-  const deleteMessage = ()=> {
-    window.confirm("Delete this deck? You will not be able to recover it.")}
+
+function DeleteDeckButton({deckId}) {
+  const history = useHistory();
+
+  const handleDelete = () => {
+    const confirm = window.confirm(
+      "Delete this deck?\n\nYou will not be able to recover it."
+    );
+    if (confirm) {
+      deleteDeck(deckId).then(() => history.push("/decks"));
+    }
+  };
   return (
-    <button type="button" onClick={deleteMessage} className="btn btn-danger btn-lg">
+    <button
+      type="button"
+      onClick={handleDelete}
+      className="btn btn-danger float-right"
+    >
       Delete
     </button>
   );
