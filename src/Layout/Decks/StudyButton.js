@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function StudyButton() {
+function StudyButton({ deckId }) {
   return (
-    <Link to="/decks/:deckId/study">
-      <button type="button" className="btn btn-primary btn-lg">
-        Study
-      </button>
+    <Link
+      to={`/decks/${deckId}/study`}
+      className="btn btn-success mr-2"
+      title="Study deck"
+    >
+      <span className="oi oi-book" /> Study
     </Link>
   );
 }
