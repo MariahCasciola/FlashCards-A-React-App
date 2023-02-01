@@ -3,7 +3,6 @@ import BreadCrumb from "../../BreadCrumb";
 import StudyDeck from "./StudyDeck";
 
 function StudyScreen() {
-  
   return (
     <div>
       <BreadCrumb />
