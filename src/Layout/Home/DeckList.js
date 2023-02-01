@@ -14,7 +14,7 @@ function DeckList() {
       abortController.abort();
     };
   }, []);
-
+// console.log(decks)
   return (
     <div>
       {decks.map((deck, index) => (

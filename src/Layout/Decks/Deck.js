@@ -12,7 +12,7 @@ function Deck({ deck = {} }) {
       <p> {description} </p>
       <ViewButton deckId={id} />
       <StudyButton deckId={id} />
-      <DeleteDeckButton />
+      <DeleteDeckButton deckId={id} />
     </div>
   );
 }
