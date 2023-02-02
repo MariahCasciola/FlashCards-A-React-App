@@ -1,13 +1,13 @@
 import React from "react";
-import { useParams, useHistory, Link } from "react-router-dom";
-import { deleteCard, readDeck, deleteDeck } from "../../utils/api";
+import { useParams, Link } from "react-router-dom";
+import { deleteCard, readDeck } from "../../utils/api";
 import { useEffect, useState } from "react";
 import CardList from "../Cards/CardList";
 import StudyButton from "./StudyButton";
 import DeleteDeckButton from "./DeleteDeckButton";
 
 function DeckScreen() {
-  const history = useHistory();
+  // const history = useHistory();
 //   const { path } = useRouteMatch();
   const { deckId } = useParams();
   const [deck, setDeck] = useState({ cards: [] });
@@ -17,14 +17,14 @@ function DeckScreen() {
   }
 
   // delete deck handler
-  function handleDelete() {
-    const confirmed = window.confirm(
-      "Delete this deck?\n\nYou will not be able to recover it."
-    );
-    if (confirmed) {
-      deleteDeck(deck.id).then(() => history.push("/decks"));
-    }
-  }
+  // function handleDelete() {
+  //   const confirmed = window.confirm(
+  //     "Delete this deck?\n\nYou will not be able to recover it."
+  //   );
+  //   if (confirmed) {
+  //     deleteDeck(deck.id).then(() => history.push("/decks"));
+  //   }
+  // }
 
   //delete card handler
   function deleteCardHandler(cardId) {

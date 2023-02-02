@@ -6,7 +6,6 @@ function StudyScreen() {
   return (
     <div>
       <BreadCrumb />
-      <h2> Deck Title </h2>
       <StudyDeck />
     </div>
   );

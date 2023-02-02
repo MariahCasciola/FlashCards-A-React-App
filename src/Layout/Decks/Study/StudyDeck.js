@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { readDeck } from "../../../utils/api";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import StudyCard from "./StudyCard";
 
 function StudyDeck() {
+  //get deckId from the url
+  const { deckId } = useParams();
+  const [deck, setDeck] = useState({});
+
+  //call readDeck, so we can get the deck object
+  useEffect(() => {
+    readDeck(deckId).then(setDeck);
+  }, [deckId]);
+
   return (
     <div>
-      <nav>Home/ Deck Title/ Study </nav>
-      <h1>Study: Deck Title</h1>
-      <p>Card 1 of 3</p>
-      <p>Front of card</p>
-      <p>Flip Button</p>
+      <h1>Study: {deck.name}</h1>
+      <StudyCard cards={deck.cards} />
     </div>
   );
 }
