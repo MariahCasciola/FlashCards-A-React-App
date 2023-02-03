@@ -1,59 +1,10 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
-import { deleteCard, readDeck } from "../../utils/api";
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import CardList from "../Cards/CardList";
 import StudyButton from "./StudyButton";
 import DeleteDeckButton from "./DeleteDeckButton";
 
-function DeckScreen() {
-  // const history = useHistory();
-//   const { path } = useRouteMatch();
-  const { deckId } = useParams();
-  const [deck, setDeck] = useState({ cards: [] });
-
-  function loadDeck() {
-    readDeck(deckId).then(setDeck);
-  }
-
-  // delete deck handler
-  // function handleDelete() {
-  //   const confirmed = window.confirm(
-  //     "Delete this deck?\n\nYou will not be able to recover it."
-  //   );
-  //   if (confirmed) {
-  //     deleteDeck(deck.id).then(() => history.push("/decks"));
-  //   }
-  // }
-
-  //delete card handler
-  function deleteCardHandler(cardId) {
-    const confirmed = window.confirm(
-      "Delete this card?\n\nYou will not be able to recover it."
-    );
-    if (confirmed) {
-      console.log("deleteCardHandler", confirmed, cardId);
-      deleteCard(cardId).then(loadDeck);
-    }
-  }
-
-  // useEffect(() => {
-  //   //make api call from readDeck() using .then()
-  //   const abortController = new AbortController();
-  //   //the parameter of a callback takes whatever the previous resolved promise returns .then((deck)=>{setDeck}) is the same as .then(setDeck)
-  //   readDeck(deckId, abortController.signal).then((deck) => {
-  //     setDeck(deck);
-  //   });
-  //   return () => {
-  //     //cancels pending requests or response
-  //     abortController.abort();
-  //   };
-  // }, [deckId]);
-
-  //the code below is cleaner and doesn't have an abort contoller, trade for the code about if you need to add an abort controller
-
-  useEffect(loadDeck, [deckId]);
-
+function DeckScreen({ deck, loadDeck }) {
   return (
     <main className="container deck-view">
       <nav aria-label="breadcrumb">
@@ -75,25 +26,25 @@ function DeckScreen() {
         </div>
       </div>
       <Link
-        to={`/decks/${deckId}/edit`}
+        to={`/decks/${deck.id}/edit`}
         className="btn btn-secondary mr-2"
         title="Edit deck"
       >
         <span className="oi oi-pencil" /> Edit
       </Link>
-      <StudyButton deckId={deckId} />
+      <StudyButton deckId={deck.id} />
       <Link
-        to={`/decks/${deckId}/cards/new`}
+        to={`/decks/${deck.id}/cards/new`}
         className="btn btn-primary"
         title="Add Card"
       >
         <span className="oi oi-plus" /> Add Cards
       </Link>
-      <DeleteDeckButton deckId={deckId}/>
+      <DeleteDeckButton deckId={deck.id} />
       {/* <button className="btn btn-danger float-right" title="Delete deck">
         <span className="oi oi-trash" onClick={handleDelete} />
       </button> */}
-      <CardList deck={deck} onCardDelete={deleteCardHandler} />
+      <CardList deck={deck} loadDeck={loadDeck} />
     </main>
   );
 }

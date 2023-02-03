@@ -1,8 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-function CardList({ deck, onCardDelete}) {
+import { deleteCard } from "../../utils/api";
+ 
+function CardList({ deck, loadDeck }) {
   const { cards = [] } = deck;
+
+  //delete card handler
+  function deleteCardHandler(cardId) {
+    const confirmed = window.confirm(
+      "Delete this card?\n\nYou will not be able to recover it."
+    );
+    if (confirmed) {
+      console.log("deleteCardHandler", confirmed, cardId);
+      deleteCard(cardId).then(loadDeck);
+    }
+  }
 
   const list = cards.map((card) => (
     <li
@@ -27,7 +39,7 @@ function CardList({ deck, onCardDelete}) {
           <button className="btn btn-danger" title="Delete Card">
             <span
               className="oi oi-trash"
-              onClick={() => onCardDelete(card.id)}
+              onClick={() => deleteCardHandler(card.id)}
             />
           </button>
         </div>

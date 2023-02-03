@@ -2,11 +2,11 @@ import React from "react";
 import BreadCrumb from "../../BreadCrumb";
 import StudyDeck from "./StudyDeck";
 
-function StudyScreen() {
+function StudyScreen({deck}) {
   return (
     <div>
       <BreadCrumb />
-      <StudyDeck />
+      <StudyDeck deck={deck}/>
     </div>
   );
 }

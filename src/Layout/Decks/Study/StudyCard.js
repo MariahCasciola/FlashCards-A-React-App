@@ -2,11 +2,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-function StudyCard({ cards = [{ id: "", front: "", back: "" }] }) {
+function StudyCard({ cards }) {
   //deck is an object containing a key called cards
   //cards is an array with keys id, front, back
 
   //keeps track of the card flipped verses not flipped
+  //setFlipped to false, so the front of the card shows
   const [flipped, setFlipped] = useState(false);
   const [card, setCard] = useState(cards[0]);
   const history = useHistory();
@@ -14,10 +15,9 @@ function StudyCard({ cards = [{ id: "", front: "", back: "" }] }) {
   const flippHandler = () => setFlipped(!flipped);
 
   const nextHandler = () => {
-    const cardIndex = cards.indexOf(card);
+    const cardIndex = cards.indexOf(card); //number
     //0<3, 1<3, 2<3,
     if (cardIndex < cards.length - 1) {
-      //setFlipped to false, so the front of the card shows
       setFlipped(false);
       //the next card
       setCard(cards[cardIndex + 1]);

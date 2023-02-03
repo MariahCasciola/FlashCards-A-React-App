@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import DeckRouter from "./DeckRouter";
-import CreateDeckScreen from "./CreateDeckScreen";
+import CreateEditDeckScreen from "./CreateEditDeckScreen";
 
 function Decks() {
   const { path } = useRouteMatch();
@@ -10,7 +10,7 @@ function Decks() {
     <Switch>
       {/* CreateDeckScreen view */}
       <Route path={`${path}/new`}>
-        <CreateDeckScreen />
+        <CreateEditDeckScreen type='Create'/>
       </Route>
 
       {/* DeckScreen view */}
