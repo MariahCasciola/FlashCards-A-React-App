@@ -25,7 +25,7 @@ function DeckRouter() {
     <Switch>
       {/* Edit Deck Screen */}
       <Route path={`${path}/edit`}>
-        <CreateEditDeckScreen type="Edit" deck={deck} />
+        <CreateEditDeckScreen type="Edit" deck={deck} loadDeck={loadDeck} />
       </Route>
 
       {/* StudyScreen view */}

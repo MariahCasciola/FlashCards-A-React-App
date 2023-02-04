@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { createDeck, updateDeck } from "../../utils/api";
 import BreadCrumb from "../BreadCrumb";
 
-function CreateEditDeckScreen({ type, deck }) {
+function CreateEditDeckScreen({ type, deck, loadDeck }) {
   //no deck id required, api call is making a POSt request, and will take any object that is put in the form
   const initialFormState = { name: "", description: "" };
   //declaring the forms initial state
@@ -38,12 +38,12 @@ function CreateEditDeckScreen({ type, deck }) {
 
   //we need a param for this handler
   const handleEdit = async () => {
-    //
     const updatedDeck = {
       id: deck.id,
       ...formData,
     };
     await updateDeck(updatedDeck, new AbortController().signal);
+    await loadDeck();
     history.push(`/decks/${deck.id}`);
   };
 

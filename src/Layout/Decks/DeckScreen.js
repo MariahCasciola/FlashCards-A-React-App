@@ -40,10 +40,9 @@ function DeckScreen({ deck, loadDeck }) {
       >
         <span className="oi oi-plus" /> Add Cards
       </Link>
+
       <DeleteDeckButton deckId={deck.id} />
-      {/* <button className="btn btn-danger float-right" title="Delete deck">
-        <span className="oi oi-trash" onClick={handleDelete} />
-      </button> */}
+
       <CardList deck={deck} loadDeck={loadDeck} />
     </main>
   );

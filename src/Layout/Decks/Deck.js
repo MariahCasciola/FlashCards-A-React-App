@@ -3,7 +3,7 @@ import DeleteDeckButton from "./DeleteDeckButton";
 import StudyButton from "./StudyButton";
 import ViewButton from "./ViewButton";
 
-function Deck({ deck = {} }) {
+function Deck({ deck = {}, loadDeckList }) {
   const { id = "", name = "", description = "" } = deck;
   return !deck ? null : (
     <div>
@@ -12,7 +12,7 @@ function Deck({ deck = {} }) {
       <p> {description} </p>
       <ViewButton deckId={id} />
       <StudyButton deckId={id} />
-      <DeleteDeckButton deckId={id} />
+      <DeleteDeckButton deckId={id} loadDeckList={loadDeckList} />
     </div>
   );
 }

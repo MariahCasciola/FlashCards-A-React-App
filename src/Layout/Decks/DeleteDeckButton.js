@@ -2,16 +2,19 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { deleteDeck } from "../../utils/api";
 
-
-function DeleteDeckButton({deckId}) {
+function DeleteDeckButton({ deckId, loadDeckList }) {
   const history = useHistory();
-
-  const handleDelete = () => {
+  const handleDelete = async () => {
     const confirm = window.confirm(
       "Delete this deck?\n\nYou will not be able to recover it."
     );
     if (confirm) {
-      deleteDeck(deckId).then(() => history.push("/"));
+      await deleteDeck(deckId);
+      //condition below allows us to use one component for two buttons that delete decks on two different pages
+      if (loadDeckList) {
+        await loadDeckList();
+      }
+      history.push("/");
     }
   };
   return (
