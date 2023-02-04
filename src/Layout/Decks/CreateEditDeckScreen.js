@@ -65,7 +65,7 @@ function CreateEditDeckScreen({ type, deck, loadDeck }) {
   return (
     <div>
       {/* pass type into BreadCrumb later */}
-      <BreadCrumb type={type} />
+      <BreadCrumb type={type} title={`${type} Deck`}/>
       <h1>{type} Deck</h1>
       <form onSubmit={handleSubmit} id="deckForm">
         <label htmlFor="name">

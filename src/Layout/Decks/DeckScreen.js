@@ -3,22 +3,12 @@ import { Link } from "react-router-dom";
 import CardList from "../Cards/CardList";
 import StudyButton from "./StudyButton";
 import DeleteDeckButton from "./DeleteDeckButton";
+import BreadCrumb from "../BreadCrumb";
 
 function DeckScreen({ deck, loadDeck }) {
   return (
     <main className="container deck-view">
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item">
-            <Link to="/">
-              <span className="oi oi-home" /> Home
-            </Link>
-          </li>
-          <li className="breadcrumb-item active" aria-current="page">
-            {deck.name}
-          </li>
-        </ol>
-      </nav>
+      <BreadCrumb title={deck.name} />
       <div className="media mb-2">
         <div className="media-body">
           <h5 className="mt-0">{deck.name}</h5>

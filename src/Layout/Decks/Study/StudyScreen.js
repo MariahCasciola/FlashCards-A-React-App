@@ -2,11 +2,11 @@ import React from "react";
 import BreadCrumb from "../../BreadCrumb";
 import StudyDeck from "./StudyDeck";
 
-function StudyScreen({deck}) {
+function StudyScreen({ deck }) {
   return (
     <div>
-      <BreadCrumb />
-      <StudyDeck deck={deck}/>
+      <BreadCrumb link={deck.name} title="Study" href={`/decks/${deck.id}`} />
+      <StudyDeck deck={deck} />
     </div>
   );
 }
