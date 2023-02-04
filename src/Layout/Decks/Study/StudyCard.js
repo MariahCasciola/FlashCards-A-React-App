@@ -45,7 +45,7 @@ function StudyCard({ cards }) {
       {cards.length ? (
         <div>
           <p>
-            Card {card.id} of {cards.length}
+            Card {cards.indexOf(card)+1} of {cards.length}
           </p>
           <p>{flipped ? card.back : card.front}</p>
           <button onClick={flippHandler}>Flip</button>

@@ -58,7 +58,17 @@ function CreateEditDeckScreen({ type, deck, loadDeck }) {
   return (
     <div>
       {/* pass type into BreadCrumb later */}
-      <BreadCrumb type={type} title={`${type} Deck`} />
+      {type === "Edit" ? (
+        // edit deck breadcrumb
+        <BreadCrumb
+          title={`${type} Deck`}
+          link={deck.name}
+          href={`/decks/${deck.id}`}
+        />
+      ) : (
+        // create deck breadcrumb
+        <BreadCrumb title={`${type} Deck`} />
+      )}
       <h1>{type} Deck</h1>
       <form onSubmit={handleSubmit} id="deckForm">
         <label htmlFor="name">
