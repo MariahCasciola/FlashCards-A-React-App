@@ -25,7 +25,9 @@ function Layout() {
           </Route>
 
           {/* NotFound view */}
-          <NotFound />
+          <Route>
+            <NotFound />
+          </Route>
         </Switch>
       </div>
     </>

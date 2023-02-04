@@ -4,6 +4,7 @@ import StudyScreen from "./Study/StudyScreen";
 import DeckScreen from "./DeckScreen";
 import CreateEditDeckScreen from "./CreateEditDeckScreen";
 import { readDeck } from "../../utils/api";
+import CardRouter from "../Cards/CardRouter";
 
 function DeckRouter() {
   const { path, params } = useRouteMatch();
@@ -23,6 +24,11 @@ function DeckRouter() {
 
   return (
     <Switch>
+      {/* Holds Add Card and Edit Card */}
+      <Route path={`${path}/cards`} >
+        <CardRouter />
+      </Route>
+
       {/* Edit Deck Screen */}
       <Route path={`${path}/edit`}>
         <CreateEditDeckScreen type="Edit" deck={deck} loadDeck={loadDeck} />
