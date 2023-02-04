@@ -4,8 +4,11 @@ import { createDeck, updateDeck } from "../../utils/api";
 import BreadCrumb from "../BreadCrumb";
 
 function CreateEditDeckScreen({ type, deck, loadDeck }) {
-  //no deck id required, api call is making a POSt request, and will take any object that is put in the form
-  const initialFormState = { name: "", description: "" };
+  //no deck id required, api call is making a POST/PUT request, and will take any object that is put in the form
+  const initialFormState =
+    type === "Create"
+      ? { name: "", description: "" }
+      : { name: deck.name, description: deck.description };
   //declaring the forms initial state
   const [formData, setFormData] = useState({ ...initialFormState });
   const history = useHistory();
@@ -25,18 +28,8 @@ function CreateEditDeckScreen({ type, deck, loadDeck }) {
     //clears the form after the submit
     setFormData({ ...initialFormState });
     history.push(`/decks/${id}`);
-
-    //.then
-    // createDeck(formData, new AbortController().signal)
-    //   .then(({ id }) => id)
-    //   .then((deckId) => {
-    //     setFormData({ ...initialFormState });
-    //     return deckId;
-    //   })
-    //   .then((deckId) => history.push(`/decks/${deckId}`));
   };
 
-  //we need a param for this handler
   const handleEdit = async () => {
     const updatedDeck = {
       id: deck.id,
@@ -65,7 +58,7 @@ function CreateEditDeckScreen({ type, deck, loadDeck }) {
   return (
     <div>
       {/* pass type into BreadCrumb later */}
-      <BreadCrumb type={type} title={`${type} Deck`}/>
+      <BreadCrumb type={type} title={`${type} Deck`} />
       <h1>{type} Deck</h1>
       <form onSubmit={handleSubmit} id="deckForm">
         <label htmlFor="name">

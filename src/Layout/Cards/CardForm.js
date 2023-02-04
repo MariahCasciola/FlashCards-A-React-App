@@ -1,66 +1,78 @@
 import React, { useState } from "react";
 
 function CardForm({
-    onSubmit,
-    onDone,
-    deckName = "Loading....",
-    initialState,
-    buttonLabelDone="Done" 
+  submitHelper,
+  onCancel,
+  deckName = "Loading....",
+  initialFormState,
+  submitLabel,
+  cancelLabel,
+  headerLabel,
 }) {
-    // create card & deck variable for state
-    const [card, setCard] = useState(initialState);
+  // create card & deck variable for state
+  const [formData, setFormData] = useState(initialFormState);
 
-    // changer handler
-    function changeHandler(){}
+  // changer handler
+  function changeHandler({ target }) {
+    const { name, value } = target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  }
 
+  async function submitHandler(event) {
+    event.preventDefault();
+    //after submit, clear the formData
+    submitHelper(formData).then(() => setFormData(initialFormState));
+  }
 
-    // submit handler
-    function submitHandler() {}
+  return (
+    <form onSubmit={submitHandler} className="card-form">
+      <fieldset>
+        <legend>
+          {deckName}: {headerLabel} Card
+        </legend>
 
-    return (
-        <form onSubmit={submitHandler} className="card-form">
-          <fieldset>
-            <legend>{deckName}: Add Card</legend>
-    
-            <div className="form-group">
-              <label htmlFor="front">Front</label>
-              <textarea
-                id="front"
-                name="front"
-                tabIndex="1"
-                className="form-control"
-                required={true}
-                placeholder="Front side of card"
-                value={card.front}
-                onChange={changeHandler}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="back">Back</label>
-              <textarea
-                id="back"
-                name="back"
-                tabIndex="2"
-                className="form-control"
-                required={true}
-                placeholder="Back side of card"
-                value={card.back}
-                onChange={changeHandler}
-              />
-            </div>
-    
-            <button
-              className="btn btn-secondary mr-2"
-              onClick={onDone}
-              tabIndex="4"
-            >
-              {buttonLabelDone}
-            </button>
-            <button type="submit" className="btn btn-primary" tabIndex="3">
-              Save
-            </button>
-          </fieldset>
-        </form>
-      );
+        <div className="form-group">
+          <label htmlFor="front">Front</label>
+          <textarea
+            id="front"
+            name="front"
+            tabIndex="1"
+            className="form-control"
+            required={true}
+            placeholder="Front side of card"
+            value={formData.front}
+            onChange={changeHandler}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="back">Back</label>
+          <textarea
+            id="back"
+            name="back"
+            tabIndex="2"
+            className="form-control"
+            required={true}
+            placeholder="Back side of card"
+            value={formData.back}
+            onChange={changeHandler}
+          />
+        </div>
+
+        <button
+          className="btn btn-secondary mr-2"
+          onClick={onCancel}
+          tabIndex="4"
+        >
+          {cancelLabel}
+        </button>
+        <button type="submit" className="btn btn-primary" tabIndex="3">
+          {submitLabel}
+        </button>
+      </fieldset>
+    </form>
+  );
 }
 export default CardForm;

@@ -16,9 +16,9 @@
       "id": 3
     },
     {
-      "name": "Does this create",
-      "description": "Checking if it works after combining with the edit deck componet",
-      "id": 4
+      "id": 4,
+      "name": "Cool",
+      "description": "Yay"
     },
     {
       "id": 5,
@@ -34,8 +34,8 @@
   "cards": [
     {
       "id": 1,
-      "front": "Differentiate between Real DOM and Virtual DOM.",
-      "back": "Virtual DOM updates are faster but do not directly update the HTML",
+      "front": "l DOM.",
+      "back": "poop",
       "deckId": 1
     },
     {
@@ -61,6 +61,30 @@
       "back": "Renders the first matching child <Route> ",
       "deckId": 2,
       "id": 5
+    },
+    {
+      "front": "erere",
+      "back": "rereer",
+      "deckId": 1,
+      "id": 6
+    },
+    {
+      "front": "DSFASFAS",
+      "back": "SADFSADDFSA",
+      "deckId": 1,
+      "id": 7
+    },
+    {
+      "front": "ASDFSADF",
+      "back": "ASDFSADSAD",
+      "deckId": 1,
+      "id": 8
+    },
+    {
+      "front": "asdad",
+      "back": "asdsadsad",
+      "deckId": 1,
+      "id": 9
     }
   ]
 }

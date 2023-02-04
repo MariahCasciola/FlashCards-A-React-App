@@ -25,8 +25,8 @@ function DeckRouter() {
   return (
     <Switch>
       {/* Holds Add Card and Edit Card */}
-      <Route path={`${path}/cards`} >
-        <CardRouter />
+      <Route path={`${path}/cards`}>
+        <CardRouter deckName={deck.name} loadDeck={loadDeck} />
       </Route>
 
       {/* Edit Deck Screen */}

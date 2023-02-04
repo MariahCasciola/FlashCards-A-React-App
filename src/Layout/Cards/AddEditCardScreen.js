@@ -1,67 +1,76 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, Link, useParams } from "react-router-dom";
-import { readCard, readDeck, updateCard } from "../../utils/api";
+import { useHistory, useParams } from "react-router-dom";
+import { updateCard, readCard, createCard } from "../../utils/api";
+import BreadCrumb from "../BreadCrumb";
 import CardForm from "./CardForm";
 
-function AddEditCardScreen() {
-  // useHistory
-  const history = useHistory();
-
-  // get for deckId & cardId
+function AddEditCardScreen({ type, deckName, loadDeck }) {
   const { deckId, cardId } = useParams();
-
-  // create card & deck variable for state
+  const history = useHistory();
   const [card, setCard] = useState({ front: "", back: "" });
-  const [deck, setDeck] = useState({ cards: [] });
 
   // run useEffect to read both the deck and cards
   useEffect(() => {
-    readDeck(deckId).then(setDeck);
-    readCard(cardId).then(setCard);
+    if (cardId) {
+      readCard(cardId).then(setCard);
+    }
   }, [deckId, cardId]);
 
-  // create a submit handler for our cards
-  function submitHandler(card) {
-    updateCard(card).then(cardFormHanlder);
+  // submit helper for update cards
+  async function updateCardHelper(updatedCard) {
+    updateCard(updatedCard, new AbortController().signal)
+      // must reload deck in order for updated cards to show on deckScreen
+      .then(loadDeck)
+      .then(goToDeckScreen);
   }
 
-  // ? perhaps a done or finish handler.....maybe?
-  function cardFormHanlder() {
-    history.push(`/decks/${deck.id}`);
+  // submit helper for add cards
+  async function createCardHelper(addedCard) {
+    //You got this
+    createCard(deckId, addedCard, new AbortController().signal)
+      // must reload deck in order for the new cards to show on deckScreen
+      .then(loadDeck);
+  }
+
+  // cancel and done handler
+  function goToDeckScreen() {
+    history.push(`/decks/${deckId}`);
   }
 
   // pass in the card form
-  const cardDisplay = card.id ? (
+  const addCardDisplay = (
     <CardForm
-      onSubmit={submitHandler}
-      onDone={cardFormHanlder}
-      deckName={deck.name}
-      initialState={card}
-      buttonLabelDone="Cancel"
+      submitHelper={createCardHelper}
+      onCancel={goToDeckScreen}
+      deckName={deckName}
+      initialFormState={card}
+      headerLabel={type}
+      submitLabel="Save"
+      cancelLabel="Done"
+    />
+  );
+
+  // we only want to load for Edit type
+  const editCardDisplay = card.id ? (
+    <CardForm
+      submitHelper={updateCardHelper}
+      onCancel={goToDeckScreen}
+      deckName={deckName}
+      initialFormState={card}
+      headerLabel={type}
+      submitLabel="Submit"
+      cancelLabel="Cancel"
     />
   ) : (
     <p>Loading...... </p>
   );
 
-  // cards breadcrumb
   return (
     <>
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item">
-            <Link to="/">
-              <span className="oi oi-home" /> Home
-            </Link>
-          </li>
-          <li className="breadcrumb-item">
-            <Link to={`/decks/${deckId}`}>Deck {deck.name}</Link>
-          </li>
-          <li className="breadcrumb-item active" aria-current="page">
-            Edit Card {cardId}
-          </li>
-        </ol>
-      </nav>
-      <h3> EditCard</h3>;{cardDisplay}
+      {/* cards breadcrumb */}
+      <BreadCrumb />
+      <h3>{type} Card</h3>
+      {type === "Add" ? addCardDisplay : editCardDisplay}
     </>
   );
 }

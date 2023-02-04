@@ -5,7 +5,7 @@ function ViewButton({ deckId }) {
   return (
     <Link to={`/decks/${deckId}`}>
       <button type="button" className="btn btn-secondary btn-lg">
-        View
+        <span className="oi oi-eye" >View</span>
       </button>
     </Link>
   );
