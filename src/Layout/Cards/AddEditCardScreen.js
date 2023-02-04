@@ -67,10 +67,31 @@ function AddEditCardScreen({ type, deckName, loadDeck }) {
 
   return (
     <>
-      {/* cards breadcrumb */}
-      <BreadCrumb />
-      <h3>{type} Card</h3>
-      {type === "Add" ? addCardDisplay : editCardDisplay}
+      {type === "Add" ? (
+        // Add Card
+        <div>
+          <BreadCrumb
+            link={deckName}
+            title={`${type} Card`}
+            href={`/decks/${deckId}`}
+          />
+          <h3>
+            {deckName}: {type} Card
+          </h3>
+          {addCardDisplay}
+        </div>
+      ) : (
+        // Edit Card
+        <div>
+          <BreadCrumb
+            link={deckName}
+            title={`${type} Card ${cardId}`}
+            href={`/decks/${deckId}`}
+          />
+          <h3>{type} Card</h3>
+          {editCardDisplay}
+        </div>
+      )}
     </>
   );
 }

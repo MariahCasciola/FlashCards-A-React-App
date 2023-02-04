@@ -30,10 +30,6 @@ function CardForm({
   return (
     <form onSubmit={submitHandler} className="card-form">
       <fieldset>
-        <legend>
-          {deckName}: {headerLabel} Card
-        </legend>
-
         <div className="form-group">
           <label htmlFor="front">Front</label>
           <textarea

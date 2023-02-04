@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function BreadCrumb({ link, title, href }) {
+function BreadCrumb({ link, title, href="#" }) {
   //Home, Link, Title
   //props for my link
   return (
