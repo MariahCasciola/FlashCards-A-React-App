@@ -14,30 +14,9 @@
       "name": "Bingus",
       "description": "Bongus",
       "id": 3
-    },
-    {
-      "id": 4,
-      "name": "Cool",
-      "description": "Yay"
-    },
-    {
-      "id": 5,
-      "name": "BETTER",
-      "description": "WORK"
-    },
-    {
-      "name": "Bongus",
-      "description": "Bingus",
-      "id": 6
     }
   ],
   "cards": [
-    {
-      "id": 1,
-      "front": "l DOM.",
-      "back": "poop",
-      "deckId": 1
-    },
     {
       "id": 2,
       "front": "How do you modify the state of a different React component?",
@@ -63,28 +42,40 @@
       "id": 5
     },
     {
-      "front": "erere",
-      "back": "rereer",
-      "deckId": 1,
-      "id": 6
-    },
-    {
-      "front": "DSFASFAS",
-      "back": "SADFSADDFSA",
-      "deckId": 1,
-      "id": 7
-    },
-    {
-      "front": "ASDFSADF",
-      "back": "ASDFSADSAD",
+      "front": "This is to test edit card",
+      "back": "This is to test edit card",
       "deckId": 1,
       "id": 8
     },
     {
-      "front": "asdad",
-      "back": "asdsadsad",
+      "front": "This is the Front of the card",
+      "back": "This is the back of the card",
+      "deckId": 3,
+      "id": 10
+    },
+    {
+      "front": "We will use this to test edit. This is new text",
+      "back": "We will use this to test edit This is new text",
+      "deckId": 3,
+      "id": 11
+    },
+    {
+      "front": "We will use this to test add",
+      "back": "We will use this to test add",
+      "deckId": 3,
+      "id": 12
+    },
+    {
+      "front": "This is a test for add Card",
+      "back": "This is a test for add Card",
+      "deckId": 3,
+      "id": 13
+    },
+    {
+      "front": "This is to test a form submission test",
+      "back": "This is to test a form submission test",
       "deckId": 1,
-      "id": 9
+      "id": 14
     }
   ]
 }
