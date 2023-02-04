@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { createDeck, updateDeck } from "../../utils/api";
 import BreadCrumb from "../BreadCrumb";
@@ -12,6 +12,15 @@ function CreateEditDeckScreen({ type, deck, loadDeck }) {
   //declaring the forms initial state
   const [formData, setFormData] = useState({ ...initialFormState });
   const history = useHistory();
+
+  useEffect(() => {
+    //not dry, but gets around the dependency list warning
+    setFormData(
+      type === "Create"
+        ? { name: "", description: "" }
+        : { name: deck.name, description: deck.description }
+    );
+  }, [type, deck]);
 
   const handleChange = ({ target }) => {
     //id tells us the name of the property

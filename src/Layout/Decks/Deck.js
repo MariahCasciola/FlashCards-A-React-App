@@ -9,6 +9,7 @@ function Deck({ deck = {}, loadDeckList }) {
     <div>
       {/* we are rendering a deck */}
       <h3>{name} </h3>
+      <p> {deck.cards.length} cards</p>
       <p> {description} </p>
       <ViewButton deckId={id} />
       <StudyButton deckId={id} />

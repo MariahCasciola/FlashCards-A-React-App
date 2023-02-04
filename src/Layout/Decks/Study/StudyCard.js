@@ -52,7 +52,7 @@ function StudyCard({ cards }) {
           {flipped ? <button onClick={nextHandler}> Next </button> : null}
         </div>
       ) : (
-        <p>Loading...</p>
+        <p>Not enough cards</p>
       )}
     </div>
   );
