@@ -45,11 +45,18 @@ function StudyCard({ cards }) {
       {cards.length ? (
         <div>
           <p>
-            Card {cards.indexOf(card)+1} of {cards.length}
+            Card {cards.indexOf(card) + 1} of {cards.length}
           </p>
           <p>{flipped ? card.back : card.front}</p>
-          <button onClick={flippHandler}>Flip</button>
-          {flipped ? <button onClick={nextHandler}> Next </button> : null}
+          <button className="btn btn-outline-primary mr-2 btn-sm" onClick={flippHandler}>
+            Flip
+          </button>
+          {flipped ? (
+            <button className="btn btn-outline-secondary btn-sm" onClick={nextHandler}>
+              {" "}
+              Next{" "}
+            </button>
+          ) : null}
         </div>
       ) : (
         <p>Not enough cards</p>

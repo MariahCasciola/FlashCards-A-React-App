@@ -16,7 +16,7 @@ function DeleteCardButton({ card, loadDeck }) {
   return (
     <button
       onClick={() => deleteCardHandler(card.id)}
-      className="btn btn-danger"
+      className="btn btn-outline-danger btn-sm"
       title="Delete Card"
     >
       <span className="oi oi-trash" />

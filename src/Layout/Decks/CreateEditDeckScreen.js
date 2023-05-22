@@ -65,8 +65,7 @@ function CreateEditDeckScreen({ type, deck, loadDeck }) {
   };
 
   return (
-    <div>
-      {/* pass type into BreadCrumb later */}
+    <>
       {type === "Edit" ? (
         // edit deck breadcrumb
         <BreadCrumb
@@ -80,32 +79,38 @@ function CreateEditDeckScreen({ type, deck, loadDeck }) {
       )}
       <h1>{type} Deck</h1>
       <form onSubmit={handleSubmit} id="deckForm">
-        <label htmlFor="name">
-          Name
-          <input
-            id="name"
-            className="name"
-            type="text"
-            onChange={handleChange}
-            value={formData.name}
-          />
-        </label>
-        <label htmlFor="description">
-          Description
-          <textarea
-            id="description"
-            className="description"
-            type="text"
-            onChange={handleChange}
-            value={formData.description}
-          ></textarea>
-        </label>
-      </form>
-      <button onClick={handleCancel}>Cancel</button>
-      <button type="submit" form="deckForm">
+        <div className="mb-3">
+          <label className="form-label" htmlFor="name">
+            Name
+            <input
+              id="name"
+              className="form-control"
+              type="text"
+              onChange={handleChange}
+              value={formData.name}
+            />
+          </label>
+        </div>
+        <div className="mb-3">
+          <label className="form-label" htmlFor="description">
+            Description
+            <textarea
+              id="description"
+              className="form-control"
+              type="text"
+              onChange={handleChange}
+              value={formData.description}
+            ></textarea>
+          </label>
+        </div>
+      </form>{" "}
+      <button className="btn btn-outline-info" type="submit" form="deckForm">
         Submit
       </button>
-    </div>
+      <button className="btn btn-outline-danger" onClick={handleCancel}>
+        Cancel
+      </button>
+    </>
   );
 }
 

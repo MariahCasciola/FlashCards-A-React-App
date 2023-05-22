@@ -20,7 +20,7 @@ function CardList({ deck, loadDeck }) {
         <div className="col text-right">
           <Link
             to={`/decks/${deck.id}/cards/${card.id}/edit`}
-            className="btn btn-secondary mr-2"
+            className="btn btn-outline-secondary mr-2 btn-sm"
             title="Edit Card"
           >
             <span className="oi oi-pencil" /> Edit

@@ -17,7 +17,7 @@ function DeckScreen({ deck, loadDeck }) {
       </div>
       <Link
         to={`/decks/${deck.id}/edit`}
-        className="btn btn-secondary mr-2"
+        className="btn btn-outline-secondary mr-2 btn-sm"
         title="Edit deck"
       >
         <span className="oi oi-pencil" /> Edit
@@ -25,7 +25,7 @@ function DeckScreen({ deck, loadDeck }) {
       <StudyButton deckId={deck.id} />
       <Link
         to={`/decks/${deck.id}/cards/new`}
-        className="btn btn-primary"
+        className="btn btn-outline-primary mr-2 btn-sm"
         title="Add Card"
       >
         <span className="oi oi-plus" /> Add Cards
