@@ -9,7 +9,7 @@ function Deck({ deck = {}, loadDeckList }) {
     <>
       <div className="card text-bg-dark mb-3">
         <div className="card-header">
-          <h3 className="card-title">{name} </h3>
+          <h3 className="blockquote card-title mt-2">{name} </h3>
         </div>
         <div className="card-body">
           {/* we are rendering a deck */}

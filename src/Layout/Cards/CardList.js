@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import DeleteCardButton from "./DeleteCardButton";
- 
+
 function CardList({ deck, loadDeck }) {
   const { cards = [] } = deck;
 
@@ -25,7 +25,7 @@ function CardList({ deck, loadDeck }) {
           >
             <span className="oi oi-pencil" /> Edit
           </Link>
-          <DeleteCardButton card={card} loadDeck={loadDeck}/>
+          <DeleteCardButton card={card} loadDeck={loadDeck} />
         </div>
       </div>
     </li>
@@ -33,7 +33,7 @@ function CardList({ deck, loadDeck }) {
 
   return (
     <div className="mt-4 card-list">
-      <h3>Cards</h3>
+      <h3 className="blockquote">Cards</h3>
       <ul className="list-group">{list}</ul>
     </div>
   );

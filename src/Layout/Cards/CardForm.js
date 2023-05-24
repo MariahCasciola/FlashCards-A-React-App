@@ -56,16 +56,19 @@ function CardForm({
             onChange={changeHandler}
           />
         </div>
-
         <button
-          className="btn btn-secondary mr-2"
+          type="submit"
+          className="btn btn-outline-primary mr-2 btn-sm"
+          tabIndex="3"
+        >
+          {submitLabel}
+        </button>
+        <button
+          className="btn btn-outline-danger btn-sm"
           onClick={onCancel}
           tabIndex="4"
         >
           {cancelLabel}
-        </button>
-        <button type="submit" className="btn btn-primary" tabIndex="3">
-          {submitLabel}
         </button>
       </fieldset>
     </form>

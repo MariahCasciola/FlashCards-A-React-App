@@ -77,7 +77,7 @@ function CreateEditDeckScreen({ type, deck, loadDeck }) {
         // create deck breadcrumb
         <BreadCrumb title={`${type} Deck`} />
       )}
-      <h1>{type} Deck</h1>
+      <h1 className="blockquote">{type} Deck</h1>
       <form onSubmit={handleSubmit} id="deckForm">
         <div className="mb-3">
           <label className="form-label" htmlFor="name">
@@ -88,6 +88,7 @@ function CreateEditDeckScreen({ type, deck, loadDeck }) {
               type="text"
               onChange={handleChange}
               value={formData.name}
+              placeholder="Title of deck"
             />
           </label>
         </div>
@@ -100,14 +101,15 @@ function CreateEditDeckScreen({ type, deck, loadDeck }) {
               type="text"
               onChange={handleChange}
               value={formData.description}
+              placeholder="Description of deck"
             ></textarea>
           </label>
         </div>
-      </form>{" "}
-      <button className="btn btn-outline-info" type="submit" form="deckForm">
+      </form>
+      <button className="btn btn-outline-primary mr-3 btn-sm" type="submit" form="deckForm">
         Submit
       </button>
-      <button className="btn btn-outline-danger" onClick={handleCancel}>
+      <button className="btn btn-outline-danger btn-sm" onClick={handleCancel}>
         Cancel
       </button>
     </>
