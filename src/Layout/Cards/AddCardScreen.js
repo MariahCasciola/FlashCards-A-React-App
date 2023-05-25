@@ -49,7 +49,7 @@ function AddCardScreen({ type, deckName, loadDeck }) {
         title={`${type} Card`}
         href={`/decks/${deckId}`}
       />
-      <h3>
+      <h3 className="blockquote" >
         {deckName}: {type} Card
       </h3>
       {addCardDisplay}
