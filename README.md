@@ -2,7 +2,7 @@
 
 Description: 
 
-This is a React application designed with Bootstrap, that can be used to create custom decks of cards for study. The user can view the decks and cards on one page, or study the cards of an individual deck on another
+This is a React application designed with Bootstrap, that can be used to create custom decks of cards for study.
 
 This project is a UI, the backend is in progress with NodeJS, Express, and Knex.
 # Routes

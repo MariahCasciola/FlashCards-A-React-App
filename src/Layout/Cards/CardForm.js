@@ -3,11 +3,9 @@ import React, { useState } from "react";
 function CardForm({
   submitHelper,
   onCancel,
-  deckName = "Loading....",
   initialFormState,
   submitLabel,
   cancelLabel,
-  headerLabel,
 }) {
   // create card & deck variable for state
   const [formData, setFormData] = useState(initialFormState);

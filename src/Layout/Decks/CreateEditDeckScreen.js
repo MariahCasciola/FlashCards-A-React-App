@@ -78,40 +78,45 @@ function CreateEditDeckScreen({ type, deck, loadDeck }) {
         <BreadCrumb title={`${type} Deck`} />
       )}
       <h1 className="blockquote">{type} Deck</h1>
-      <form onSubmit={handleSubmit} id="deckForm">
-        <div className="mb-3">
-          <label className="form-label" htmlFor="name">
-            Name
-            <input
-              id="name"
-              className="form-control"
-              type="text"
-              onChange={handleChange}
-              value={formData.name}
-              placeholder="Title of deck"
-            />
-          </label>
+      <form className="card-form" onSubmit={handleSubmit} id="deckForm">
+        <div className="form-group">
+          <label className="form-label" htmlFor="name"></label>
+          Name
+          <input
+            id="name"
+            className="form-control"
+            type="text"
+            onChange={handleChange}
+            value={formData.name}
+            placeholder="Title of deck"
+          />
         </div>
-        <div className="mb-3">
-          <label className="form-label" htmlFor="description">
-            Description
-            <textarea
-              id="description"
-              className="form-control"
-              type="text"
-              onChange={handleChange}
-              value={formData.description}
-              placeholder="Description of deck"
-            ></textarea>
-          </label>
+        <div className="form-group">
+          <label className="form-label" htmlFor="description"></label>
+          Description
+          <textarea
+            id="description"
+            className="form-control"
+            type="text"
+            onChange={handleChange}
+            value={formData.description}
+            placeholder="Description of deck"
+          ></textarea>
         </div>
+        <button
+          className="btn btn-outline-primary mr-3 btn-sm"
+          type="submit"
+          form="deckForm"
+        >
+          Submit
+        </button>
+        <button
+          className="btn btn-outline-danger btn-sm"
+          onClick={handleCancel}
+        >
+          Cancel
+        </button>
       </form>
-      <button className="btn btn-outline-primary mr-3 btn-sm" type="submit" form="deckForm">
-        Submit
-      </button>
-      <button className="btn btn-outline-danger btn-sm" onClick={handleCancel}>
-        Cancel
-      </button>
     </>
   );
 }

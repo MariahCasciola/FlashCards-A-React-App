@@ -40,7 +40,6 @@ function AddCardScreen({ type, deckName, loadDeck }) {
       cancelLabel="Done"
     />
   );
-  
   return (
     // Add Card
     <div>
@@ -49,7 +48,7 @@ function AddCardScreen({ type, deckName, loadDeck }) {
         title={`${type} Card`}
         href={`/decks/${deckId}`}
       />
-      <h3 className="blockquote" >
+      <h3 className="blockquote">
         {deckName}: {type} Card
       </h3>
       {addCardDisplay}
