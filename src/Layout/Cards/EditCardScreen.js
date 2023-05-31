@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import CardForm from "./CardForm";
 import BreadCrumb from "../BreadCrumb";
 import { updateCard, readCard } from "../../utils/api";
-import { useParams, useHistory} from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 function EditCardScreen({ type, deckName, loadDeck }) {
-  //
   const { deckId, cardId } = useParams();
   const history = useHistory();
   // does this need a card id?
@@ -31,7 +30,7 @@ function EditCardScreen({ type, deckName, loadDeck }) {
     history.push(`/decks/${deckId}`);
   }
   // we only want to load for Edit type
-  const editCardDisplay = card.id ? (
+  const editCardDisplay = (
     <CardForm
       submitHelper={updateCardHelper}
       onCancel={goToDeckScreen}
@@ -41,8 +40,6 @@ function EditCardScreen({ type, deckName, loadDeck }) {
       submitLabel="Submit"
       cancelLabel="Cancel"
     />
-  ) : (
-    <p>Loading...... </p>
   );
 
   return (
@@ -52,7 +49,7 @@ function EditCardScreen({ type, deckName, loadDeck }) {
         title={`${type} Card ${cardId}`}
         href={`/decks/${deckId}`}
       />
-      <h3>{type} Card</h3>
+      <h3 className="blockquote">{type} Card</h3>
       {editCardDisplay}
     </div>
   );

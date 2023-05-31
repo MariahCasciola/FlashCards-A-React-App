@@ -5,7 +5,9 @@ import StudyButton from "./StudyButton";
 import DeleteDeckButton from "./DeleteDeckButton";
 import BreadCrumb from "../BreadCrumb";
 
-function DeckScreen({ deck, loadDeck }) {
+function DeckScreen({ deck, loadDeck, promiseInProgress }) {
+  // console.log(promiseInProgress);
+
   return (
     <main className="container deck-view">
       <BreadCrumb title={deck.name} />
@@ -17,7 +19,7 @@ function DeckScreen({ deck, loadDeck }) {
       </div>
       <Link
         to={`/decks/${deck.id}/edit`}
-        className="btn btn-secondary mr-2"
+        className="btn btn-secondary mr-2 btn-sm"
         title="Edit deck"
       >
         <span className="oi oi-pencil" /> Edit
@@ -25,7 +27,7 @@ function DeckScreen({ deck, loadDeck }) {
       <StudyButton deckId={deck.id} />
       <Link
         to={`/decks/${deck.id}/cards/new`}
-        className="btn btn-primary"
+        className="btn btn-primary mr-2 btn-sm"
         title="Add Card"
       >
         <span className="oi oi-plus" /> Add Cards
@@ -33,7 +35,11 @@ function DeckScreen({ deck, loadDeck }) {
 
       <DeleteDeckButton deckId={deck.id} />
 
-      <CardList deck={deck} loadDeck={loadDeck} />
+      <CardList
+        deck={deck}
+        loadDeck={loadDeck}
+        promiseInProgress={promiseInProgress}
+      />
     </main>
   );
 }

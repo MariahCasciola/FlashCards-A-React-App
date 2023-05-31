@@ -5,6 +5,7 @@ import DeckScreen from "./DeckScreen";
 import CreateEditDeckScreen from "./CreateEditDeckScreen";
 import { readDeck } from "../../utils/api";
 import CardRouter from "../Cards/CardRouter";
+import { trackPromise, usePromiseTracker } from "react-promise-tracker";
 
 function DeckRouter() {
   const { path, params } = useRouteMatch();
@@ -15,9 +16,10 @@ function DeckRouter() {
     description: "",
     cards: [{ id: "", front: "", back: "" }],
   });
+  const promiseInProgress = usePromiseTracker();
 
   function loadDeck() {
-    readDeck(deckId).then(setDeck);
+    trackPromise(readDeck(deckId).then(setDeck));
   }
 
   useEffect(loadDeck, [deckId]);
@@ -41,7 +43,11 @@ function DeckRouter() {
 
       {/* DeckScreen view */}
       <Route path={path}>
-        <DeckScreen deck={deck} loadDeck={loadDeck} />
+        <DeckScreen
+          deck={deck}
+          loadDeck={loadDeck}
+          promiseInProgress={promiseInProgress}
+        />
       </Route>
     </Switch>
   );

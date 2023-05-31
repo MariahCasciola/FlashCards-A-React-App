@@ -5,7 +5,7 @@ function BreadCrumb({ link, title, href="#" }) {
   //Home, Link, Title
   //props for my link
   return (
-    <nav aria-label="breadcrumb">
+    <nav aria-label="breadcrumb border border-primary">
       <ol className="breadcrumb">
         <li className="breadcrumb-item">
           <Link to="/">

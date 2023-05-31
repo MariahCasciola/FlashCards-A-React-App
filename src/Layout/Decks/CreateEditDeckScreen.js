@@ -65,8 +65,7 @@ function CreateEditDeckScreen({ type, deck, loadDeck }) {
   };
 
   return (
-    <div>
-      {/* pass type into BreadCrumb later */}
+    <>
       {type === "Edit" ? (
         // edit deck breadcrumb
         <BreadCrumb
@@ -78,34 +77,47 @@ function CreateEditDeckScreen({ type, deck, loadDeck }) {
         // create deck breadcrumb
         <BreadCrumb title={`${type} Deck`} />
       )}
-      <h1>{type} Deck</h1>
-      <form onSubmit={handleSubmit} id="deckForm">
-        <label htmlFor="name">
+      <h1 className="blockquote">{type} Deck</h1>
+      <form className="card-form" onSubmit={handleSubmit} id="deckForm">
+        <div className="form-group">
+          <label className="form-label" htmlFor="name"></label>
           Name
           <input
             id="name"
-            className="name"
+            className="form-control"
             type="text"
             onChange={handleChange}
             value={formData.name}
+            placeholder="Title of deck"
           />
-        </label>
-        <label htmlFor="description">
+        </div>
+        <div className="form-group">
+          <label className="form-label" htmlFor="description"></label>
           Description
           <textarea
             id="description"
-            className="description"
+            className="form-control"
             type="text"
             onChange={handleChange}
             value={formData.description}
+            placeholder="Description of deck"
           ></textarea>
-        </label>
+        </div>
+        <button
+          className="btn btn-primary mr-3 btn-sm"
+          type="submit"
+          form="deckForm"
+        >
+          Submit
+        </button>
+        <button
+          className="btn btn-danger btn-sm"
+          onClick={handleCancel}
+        >
+          Cancel
+        </button>
       </form>
-      <button onClick={handleCancel}>Cancel</button>
-      <button type="submit" form="deckForm">
-        Submit
-      </button>
-    </div>
+    </>
   );
 }
 
