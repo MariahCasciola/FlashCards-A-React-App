@@ -104,14 +104,14 @@ function CreateEditDeckScreen({ type, deck, loadDeck }) {
           ></textarea>
         </div>
         <button
-          className="btn btn-outline-primary mr-3 btn-sm"
+          className="btn btn-primary mr-3 btn-sm"
           type="submit"
           form="deckForm"
         >
           Submit
         </button>
         <button
-          className="btn btn-outline-danger btn-sm"
+          className="btn btn-danger btn-sm"
           onClick={handleCancel}
         >
           Cancel

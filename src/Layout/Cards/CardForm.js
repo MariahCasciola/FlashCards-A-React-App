@@ -56,13 +56,13 @@ function CardForm({
         </div>
         <button
           type="submit"
-          className="btn btn-outline-primary mr-2 btn-sm"
+          className="btn btn-primary mr-2 btn-sm"
           tabIndex="3"
         >
           {submitLabel}
         </button>
         <button
-          className="btn btn-outline-danger btn-sm"
+          className="btn btn-danger btn-sm"
           onClick={onCancel}
           tabIndex="4"
         >

@@ -21,7 +21,7 @@ function DeleteDeckButton({ deckId, loadDeckList }) {
     <button
       type="button"
       onClick={handleDelete}
-      className="btn btn-outline-danger btn-sm"
+      className="btn btn-danger btn-sm"
     >
       <span className="oi oi-trash"></span>
     </button>

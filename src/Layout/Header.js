@@ -2,8 +2,8 @@ import React from "react";
 
 function Header() {
   return (
-    <header className="jumbotron bg-light">
-      <div className="container text-black">
+    <header className="jumbotron bg-primary">
+      <div className="container text-white">
         <h1 className="display-4">Flashcard-o-matic</h1>
         <p className="lead">Discover The Flashcard Difference.</p>
       </div>

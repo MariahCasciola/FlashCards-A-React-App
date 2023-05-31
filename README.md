@@ -14,13 +14,10 @@ This project is a UI, the backend is in progress with NodeJS, Express, and Knex.
 # Mobile view 
 
 Dashboard
-![](/public/Flashcards_Dashboard.png)
 
 View a deck and its cards
-![](/public/View_Deck.png)
 
 Study cards
-![](/public/Study_View.png)
 
 Flip card
 ![](/public/Flip_Next_Button.png)
