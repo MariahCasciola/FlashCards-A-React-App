@@ -1,11 +1,13 @@
 # Flashcards Application
 
-Description: 
+Description:
 
 This is a React application designed with Bootstrap, that can be used to create custom decks of cards for study.
 
 This project is a deployed UI, the backend is in progress with NodeJS, Express, and Knex: Deployment
-# Routes
+
+## Routes
+
 /decks/new
 
 /decks/1
@@ -18,75 +20,70 @@ This project is a deployed UI, the backend is in progress with NodeJS, Express, 
 
 /decks/1/cards/2/edit
 
-# Mobile view 
+## Mobile view
 
 Dashboard
 
-<!-- Path: /decks/new -->
-
-![](/public/images/Moblie-dashboard.png)
+![Dashboard](/public/images/Moblie-dashboard.png)
 
 Create Deck
 
-![](/public/images/Mobile-create-deck.png)
+![Create Deck](/public/images/Mobile-create-deck.png)
 
 View Deck
 
-![](/public/images/Moblie-view-deck.png)
+![View Deck](/public/images/Moblie-view-deck.png)
 
 Study cards
 
-![](/public/images/Mobile-study-cards.png)
+![Study cards](/public/images/Mobile-study-cards.png)
 
 Flip card
 
-![](/public/images/Mobile-flip-card.png)
+![Flip card](/public/images/Mobile-flip-card.png)
 
 Edit Deck
 
-![](/public/images/Mobile-edit-deck.png)
+![Edit Deck](/public/images/Mobile-edit-deck.png)
 
 Add Card
 
-![](/public/images/Mobile-add-card.png)
-
+![Add](/public/images/Mobile-add-card.png)
 
 Edit Card
 
-![]()
+![Edit Card](/public/images/desktop-edit-card.png)
 
-# Desktop view
+## Desktop view
 
 Dashboard
 
-![](/public/images/Desktop-dashboard.png)
+![Dashboard](/public/images/desktop-dashboard.png)
 
 Create Deck
 
-![](/public/images/Desktop-create-deck.png)
+![Create Deck](/public/images/desktop-create-deck.png)
 
 View a deck
 
-![](/public/images/Desktop-view-deck.png)
+![View a deck](/public/images/desktop-view-deck.png)
 
 Study cards
 
-![](/public/images/Desktop-study-cards.png)
+![Study cards](/public/images/desktop-study-cards.png)
 
-Flip card
+Flip and Next card
 
-![](/public/images/Desktop-flip-card.png)
+![Flip and Next card](/public/images/desktop-next-card.png)
 
 Edit Deck
 
-![](/public/images/Desktop-edit-deck.png)
-
+![Edit Deck](/public/images/desktop-edit-deck.png)
 
 Add Card
 
-![](/public/images/Desktop-add-card.png)
-
+![Add Card](/public/images/desktop-add-card.png)
 
 Edit Card
 
-![]()
+![Edit Card](/public/images/desktop-edit-card.png)
