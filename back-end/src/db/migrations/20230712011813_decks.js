@@ -1,8 +1,9 @@
 exports.up = function (knex) {
   return knex.schema.createTable("decks", (table) => {
-    table.increments("decks_id").primary();
+    table.increments("deck_id").primary();
     table.string("name");
     table.string("description");
+    table.timestamps(true, true);
   });
 };
 
