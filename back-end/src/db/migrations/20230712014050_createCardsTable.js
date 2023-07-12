@@ -3,10 +3,10 @@ exports.up = function (knex) {
     table.increments("card_id").primary();
     table.string("front");
     table.string("back");
-    table.integer("deck_id").unsigned().notNullable();
+    table.integer("deckId").unsigned();
     table
-      .foreign("deck_id")
-      .references("deck_id")
+      .foreign("deckId")
+      .references("deckId")
       .inTable("decks")
       .onDelete("cascade");
     table.timestamps(true, true);
