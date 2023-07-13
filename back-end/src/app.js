@@ -9,7 +9,7 @@ const decksRouter = require("./decks/decks.router");
 
 const app = express();
 
-// TODO: app.use("/", router)
+// TODO: app.use("/card", cardsRouter)
 app.use("/decks", decksRouter);
 // app.use("/cards", cardsRouter);
 
