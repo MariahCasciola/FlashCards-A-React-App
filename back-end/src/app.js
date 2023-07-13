@@ -1,13 +1,20 @@
 const express = require("express");
 
+const errorHandler = require("./errors/errorHandler");
+const notFound = require("./errors/notFound");
+
 // TODO: require routers and assign them to
+const decksRouter = require("");
+const cardsRouter = require("");
 
 const app = express();
 
 // TODO: app.use("/", router)
 
-// TODO: not found handler
+// DONE: not found handler
+app.use(notFound);
 
-// TODO: error handler
+// DONE: error handler
+app.use(errorHandler);
 
 module.exports = app;
