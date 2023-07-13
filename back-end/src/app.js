@@ -4,12 +4,14 @@ const errorHandler = require("./errors/errorHandler");
 const notFound = require("./errors/notFound");
 
 // TODO: require routers and assign them to
-const decksRouter = require("");
-const cardsRouter = require("");
+const decksRouter = require("./decks/decks.router");
+// const cardsRouter = require("./cards/cards.router");
 
 const app = express();
 
 // TODO: app.use("/", router)
+app.use("/decks", decksRouter);
+// app.use("/cards", cardsRouter);
 
 // DONE: not found handler
 app.use(notFound);

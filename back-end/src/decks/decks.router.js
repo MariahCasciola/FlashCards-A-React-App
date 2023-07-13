@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const controller = require("./decks.controller");
-// set methodNotAllowed to method not allowed when you create it
+const methodNotAlowed = require("../errors/methodNotAllowed");
 
+router.route("/").get(controller.list).all(methodNotAlowed);
 
+module.exports = router;
