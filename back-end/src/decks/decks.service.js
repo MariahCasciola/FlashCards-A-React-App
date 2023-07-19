@@ -20,7 +20,12 @@ function listDecksWithEmbededCards() {
     .then(reduceDecks);
 }
 
+function read(deckId) {
+  return knex("decks").select("*").where({ deckId }).first();
+}
+
 module.exports = {
   list,
   listDecksWithEmbededCards,
+  read,
 };

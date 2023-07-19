@@ -1,6 +1,15 @@
 const decksService = require("./decks.service");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
+async function deckExists(req, res, next) {
+  const deck = await decksService.read(req.params.deckId);
+  if (deck) {
+    res.locals.deck = deck;
+    return next();
+  }
+  next({ status: 404, message: `${req.params.reservation} does not exist` });
+}
+
 async function list(req, res, next) {
   const { _embed } = req.query;
   if (_embed) {
@@ -11,6 +20,12 @@ async function list(req, res, next) {
   return res.json({ data });
 }
 
+function read(req, res, next) {
+  const data = res.locals.deck;
+  return res.json({ data });
+}
+
 module.exports = {
   list: asyncErrorBoundary(list),
+  read: [asyncErrorBoundary(deckExists), asyncErrorBoundary(read)],
 };
