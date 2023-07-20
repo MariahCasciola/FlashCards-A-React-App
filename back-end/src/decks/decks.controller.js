@@ -20,7 +20,12 @@ async function list(req, res, next) {
   return res.json({ data });
 }
 
-function read(req, res, next) {
+async function read(req, res, next) {
+  const { _embed } = req.query;
+  if (_embed) {
+    const data = await decksService.readDeckWithEmbededCards(req.params.deckId);
+    return res.json({ data });
+  }
   const data = res.locals.deck;
   return res.json({ data });
 }

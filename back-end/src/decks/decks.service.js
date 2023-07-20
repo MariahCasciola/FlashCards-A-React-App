@@ -24,8 +24,17 @@ function read(deckId) {
   return knex("decks").select("*").where({ deckId }).first();
 }
 
+function readDeckWithEmbededCards(deckId) {
+  return knex("decks as d")
+    .fullOuterJoin("cards as c", "c.deckId", "d.deckId")
+    .select("*")
+    .where({ "d.deckId": deckId })
+    .then(reduceDecks);
+}
+
 module.exports = {
   list,
   listDecksWithEmbededCards,
   read,
+  readDeckWithEmbededCards,
 };
