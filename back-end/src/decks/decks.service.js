@@ -11,7 +11,7 @@ const reduceDecks = reduceProperties("deckId", {
   back: ["cards", null, "back"],
 });
 
-// decks?_embed=cards, to check if the list
+// decks?_embed=cards
 function listDecksWithEmbededCards() {
   // make each deck imbeded with a card key,
   return knex("decks as d")
@@ -24,6 +24,7 @@ function read(deckId) {
   return knex("decks").select("*").where({ deckId }).first();
 }
 
+// decks/:deckId?_embed=cards
 function readDeckWithEmbededCards(deckId) {
   return knex("decks as d")
     .fullOuterJoin("cards as c", "c.deckId", "d.deckId")
@@ -32,9 +33,17 @@ function readDeckWithEmbededCards(deckId) {
     .then(reduceDecks);
 }
 
+function create(deck) {
+  return knex("decks as d")
+    .insert(deck)
+    .returning("*")
+    .then((createdDeck) => createdDeck[0]);
+}
+
 module.exports = {
   list,
   listDecksWithEmbededCards,
   read,
   readDeckWithEmbededCards,
+  create,
 };

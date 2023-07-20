@@ -30,7 +30,13 @@ async function read(req, res, next) {
   return res.json({ data });
 }
 
+async function create(req, res, next) {
+  const data = await decksService.create(req.body.data);
+  res.status(201).json({ data });
+}
+
 module.exports = {
   list: asyncErrorBoundary(list),
   read: [asyncErrorBoundary(deckExists), asyncErrorBoundary(read)],
+  create: [asyncErrorBoundary(create)],
 };
