@@ -35,8 +35,20 @@ async function create(req, res, next) {
   res.status(201).json({ data });
 }
 
+async function update(req, res, next) {
+  const deck = res.locals.deck;
+  const updatedDeck = {
+    ...deck,
+    ...req.body.data,
+    updated_at: new Date(Date.now()).toISOString(),
+  };
+  const data = await decksService.update(updatedDeck);
+  res.json({ data });
+}
+
 module.exports = {
   list: asyncErrorBoundary(list),
   read: [asyncErrorBoundary(deckExists), asyncErrorBoundary(read)],
   create: [asyncErrorBoundary(create)],
+  update: [asyncErrorBoundary(deckExists), asyncErrorBoundary(update)],
 };

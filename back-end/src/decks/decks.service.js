@@ -5,7 +5,7 @@ function list() {
   return knex("decks").select("*");
 }
 
-const reduceDecks = reduceProperties("deckId", {
+const embedCardsInDecks = reduceProperties("deckId", {
   card_id: ["cards", null, "card_id"],
   front: ["cards", null, "front"],
   back: ["cards", null, "back"],
@@ -17,7 +17,7 @@ function listDecksWithEmbededCards() {
   return knex("decks as d")
     .join("cards as c", "c.deckId", "d.deckId")
     .select("*")
-    .then(reduceDecks);
+    .then(embedCardsInDecks);
 }
 
 function read(deckId) {
@@ -30,7 +30,8 @@ function readDeckWithEmbededCards(deckId) {
     .fullOuterJoin("cards as c", "c.deckId", "d.deckId")
     .select("*")
     .where({ "d.deckId": deckId })
-    .then(reduceDecks);
+    .then(embedCardsInDecks)
+    .then((decksArray) => decksArray[0]);
 }
 
 function create(deck) {
@@ -40,10 +41,30 @@ function create(deck) {
     .then((createdDeck) => createdDeck[0]);
 }
 
+// body //id
+function update(updatedDeck) {
+  return knex("decks as d")
+    .select("*")
+    .where({ deckId: updatedDeck.deckId })
+    .update(updatedDeck, "*")
+    .then((updatedDeck) => updatedDeck[0]);
+}
+
+function updateWithEmbededCards(updatedDeck) {
+  return knex("decks as d")
+    .select("*")
+    .join("cards as c", "c.deckId", "d.deckId")
+    .where({ deckId: updatedDeck.deckId })
+    .then((updatedDeck) => updatedDeck[0])
+    .then(embedCardsInDecks);
+}
+
 module.exports = {
   list,
   listDecksWithEmbededCards,
   read,
   readDeckWithEmbededCards,
   create,
+  update,
+  updateWithEmbededCards,
 };

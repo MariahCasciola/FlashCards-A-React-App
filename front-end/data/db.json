@@ -9,11 +9,6 @@
       "name": "React Router",
       "description": "React Router is a collection of navigational components that compose declaratively with your application.",
       "id": 2
-    },
-    {
-      "name": "Bingus",
-      "description": "Bongus",
-      "id": 3
     }
   ],
   "cards": [
@@ -46,30 +41,6 @@
       "back": "This is to test edit card",
       "deckId": 1,
       "id": 8
-    },
-    {
-      "front": "This is the Front of the card",
-      "back": "This is the back of the card",
-      "deckId": 3,
-      "id": 10
-    },
-    {
-      "front": "We will use this to test edit. This is new text",
-      "back": "We will use this to test edit This is new text",
-      "deckId": 3,
-      "id": 11
-    },
-    {
-      "front": "We will use this to test add",
-      "back": "We will use this to test add",
-      "deckId": 3,
-      "id": 12
-    },
-    {
-      "front": "This is a test for add Card",
-      "back": "This is a test for add Card",
-      "deckId": 3,
-      "id": 13
     },
     {
       "front": "This is to test a form submission test",
