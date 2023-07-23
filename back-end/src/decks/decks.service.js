@@ -50,13 +50,19 @@ function update(updatedDeck) {
     .then((updatedDeck) => updatedDeck[0]);
 }
 
+// still debugging why it cannot embed cards,
 function updateWithEmbededCards(updatedDeck) {
   return knex("decks as d")
     .select("*")
     .join("cards as c", "c.deckId", "d.deckId")
-    .where({ deckId: updatedDeck.deckId })
-    .then((updatedDeck) => updatedDeck[0])
-    .then(embedCardsInDecks);
+    .where({ "d.deckId": updatedDeck.deckId })
+    .update(updatedDeck, "*")
+    .then(embedCardsInDecks)
+    .then((updatedDeck) => updatedDeck[0]);
+}
+
+function destroy(deckId) {
+  return knex("decks").where({ deckId }).del();
 }
 
 module.exports = {
@@ -67,4 +73,5 @@ module.exports = {
   create,
   update,
   updateWithEmbededCards,
+  destroy,
 };

@@ -35,15 +35,27 @@ async function create(req, res, next) {
   res.status(201).json({ data });
 }
 
+// does not embed cards
 async function update(req, res, next) {
+  const { _embed } = req.query;
   const deck = res.locals.deck;
   const updatedDeck = {
     ...deck,
     ...req.body.data,
     updated_at: new Date(Date.now()).toISOString(),
   };
+  if (_embed) {
+    const data = await decksService.updateWithEmbededCards(updatedDeck);
+    return res.json({ data });
+  }
   const data = await decksService.update(updatedDeck);
   res.json({ data });
+}
+
+async function destroy(req, res, next) {
+  const { deck } = res.locals;
+  await decksService.destroy(deck.deckId);
+  res.sendStatus(204);
 }
 
 module.exports = {
@@ -51,4 +63,5 @@ module.exports = {
   read: [asyncErrorBoundary(deckExists), asyncErrorBoundary(read)],
   create: [asyncErrorBoundary(create)],
   update: [asyncErrorBoundary(deckExists), asyncErrorBoundary(update)],
+  destroy: [asyncErrorBoundary(deckExists), asyncErrorBoundary(destroy)],
 };
