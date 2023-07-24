@@ -8,4 +8,11 @@ function read(card_id) {
   return knex("cards as c").select("*").where({ "c.card_id": card_id }).first();
 }
 
-module.exports = { list, read };
+function create(newCard) {
+  return knex("cards as c")
+    .insert(newCard)
+    .returning("*")
+    .then((createdCards) => createdCards[0]);
+}
+
+module.exports = { list, read, create };
