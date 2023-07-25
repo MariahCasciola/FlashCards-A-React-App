@@ -6,7 +6,7 @@ This is a React application designed with Bootstrap, that can be used to create 
 
 This project is a deployed UI, the backend is in progress with NodeJS, Express, and Knex: Deployment
 
-## Routes
+## UI Routes
 
 /decks/new
 
@@ -24,66 +24,66 @@ This project is a deployed UI, the backend is in progress with NodeJS, Express, 
 
 Dashboard
 
-![Dashboard](/public/images/Moblie-dashboard.png)
+![Dashboard](/front-end/public/images/Moblie-dashboard.png)
 
 Create Deck
 
-![Create Deck](/public/images/Mobile-create-deck.png)
+![Create Deck](/front-end/public/images/Mobile-create-deck.png)
 
 View Deck
 
-![View Deck](/public/images/Moblie-view-deck.png)
+![View Deck](/front-end/public/images/Moblie-view-deck.png)
 
 Study cards
 
-![Study cards](/public/images/Mobile-study-cards.png)
+![Study cards](/front-end/public/images/Mobile-study-cards.png)
 
 Flip card
 
-![Flip card](/public/images/Mobile-flip-card.png)
+![Flip card](/front-end/public/images/Mobile-flip-card.png)
 
 Edit Deck
 
-![Edit Deck](/public/images/Mobile-edit-deck.png)
+![Edit Deck](/front-end/public/images/Mobile-edit-deck.png)
 
 Add Card
 
-![Add](/public/images/Mobile-add-card.png)
+![Add](/front-end/public/images/Mobile-add-card.png)
 
 Edit Card
 
-![Edit Card](/public/images/desktop-edit-card.png)
+![Edit Card](/front-end/public/images/mobile-edit-card.png)
 
 ## Desktop view
 
 Dashboard
 
-![Dashboard](/public/images/desktop-dashboard.png)
+![Dashboard](/front-end/public/images/Desktop-dashboard.png)
 
 Create Deck
 
-![Create Deck](/public/images/desktop-create-deck.png)
+![Create Deck](/front-end/public/images/Desktop-create-deck.png)
 
 View a deck
 
-![View a deck](/public/images/desktop-view-deck.png)
+![View a deck](/front-end/public/images/desktop-view-deck.png)
 
 Study cards
 
-![Study cards](/public/images/desktop-study-cards.png)
+![Study cards](/front-end/public/images/desktop-study-cards.png)
 
 Flip and Next card
 
-![Flip and Next card](/public/images/desktop-next-card.png)
+![Flip and Next card](/front-end/public/images/desktop-next-card.png)
 
 Edit Deck
 
-![Edit Deck](/public/images/desktop-edit-deck.png)
+![Edit Deck](/front-end/public/images/desktop-edit-deck.png)
 
 Add Card
 
-![Add Card](/public/images/desktop-add-card.png)
+![Add Card](/front-end/public/images/desktop-add-card.png)
 
 Edit Card
 
-![Edit Card](/public/images/desktop-edit-card.png)
+![Edit Card](/front-end/public/images/desktop-edit-card.png)
