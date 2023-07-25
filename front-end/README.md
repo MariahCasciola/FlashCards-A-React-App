@@ -66,11 +66,11 @@ Create Deck
 
 View a deck
 
-![View a deck](/front-end/public/images/desktop-view-deck.png)
+![View a deck](/front-end/public/images/Desktop-view-deck.png)
 
 Study cards
 
-![Study cards](/front-end/public/images/desktop-study-cards.png)
+![Study cards](/front-end/public/images/Desktop-study-cards.png)
 
 Flip and Next card
 
@@ -78,11 +78,11 @@ Flip and Next card
 
 Edit Deck
 
-![Edit Deck](/front-end/public/images/desktop-edit-deck.png)
+![Edit Deck](/front-end/public/images/Desktop-edit-deck.png)
 
 Add Card
 
-![Add Card](/front-end/public/images/desktop-add-card.png)
+![Add Card](/front-end/public/images/Desktop-add-card.png)
 
 Edit Card
 
