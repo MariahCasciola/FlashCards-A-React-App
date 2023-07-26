@@ -6,6 +6,7 @@ router
   .route("/:card_id")
   .get(controller.read)
   .put(controller.update)
+  .delete(controller.destroy)
   .all(methodNotAllowed);
 
 router

@@ -24,4 +24,8 @@ function update(updatedCard) {
     .then((updatedCard) => updatedCard[0]);
 }
 
-module.exports = { list, read, create, update };
+function destroy(card_id) {
+  return knex("cards as c").where({ card_id }).del();
+}
+
+module.exports = { list, read, create, update, destroy };

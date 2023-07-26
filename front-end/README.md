@@ -16,17 +16,17 @@ POST /decks
 
 PUT /decks/:deckId
 
-DELETE /decks/:deckId (not made)
+DELETE /decks/:deckId
 
-GET cards
+GET /cards
 
-GET cards/:card_id
+GET /cards/:card_id
 
-POST decks/:deckId/cards
+POST /decks/:deckId/cards
 
 PUT /cards/:card_id
 
-DELETE decks/:deckId/cards/:card_id (not made)
+DELETE /cards/:card_id
 
 ## UI Routes
 
