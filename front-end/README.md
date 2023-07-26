@@ -4,7 +4,29 @@ Description:
 
 This is a React application designed with Bootstrap, that can be used to create custom decks of cards for study.
 
-This project is a deployed UI, the backend is in progress with NodeJS, Express, and Knex: Deployment
+This project is a deployed UI, the backend is in progress with NodeJS, Express, and Knex: [Deployment](https://flash-cards-a-react-ezbdyjxxr-mariahcasciola.vercel.app/)
+
+## API Routes
+
+GET /decks
+
+GET /decks/:deckId
+
+POST /decks
+
+PUT /decks/:deckId
+
+DELETE /decks/:deckId (not made)
+
+GET cards
+
+GET cards/:card_id
+
+POST decks/:deckId/cards
+
+PUT /cards/:card_id
+
+DELETE decks/:deckId/cards/:card_id (not made)
 
 ## UI Routes
 
