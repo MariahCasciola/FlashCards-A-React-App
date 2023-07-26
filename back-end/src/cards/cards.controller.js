@@ -1,5 +1,6 @@
 const cardsService = require("./cards.service");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
+const hasProperties = require("../utils/hasProperties");
 
 async function cardExists(req, res, next) {
   const card = await cardsService.read(req.params.card_id);
@@ -21,12 +22,32 @@ async function read(req, res, next) {
 }
 
 async function create(req, res, next) {
-  const data = await cardsService.create(req.body.data);
+  const newCard = { ...req.body.data, deckId: req.params.deckId };
+  const data = await cardsService.create(newCard);
   res.status(201).json({ data });
+}
+
+// properities a card body must have
+const validProperties = ["front", "back"];
+
+async function update(req, res, next) {
+  const card = res.locals.card;
+  const updatedCard = {
+    ...card,
+    ...req.body.data,
+    updated_at: new Date(Date.now()).toISOString(),
+  };
+  const data = await cardsService.update(updatedCard);
+  res.json({ data });
 }
 
 module.exports = {
   list: asyncErrorBoundary(list),
   read: [asyncErrorBoundary(cardExists), asyncErrorBoundary(read)],
-  create: [asyncErrorBoundary(create)],
+  create: [hasProperties(...validProperties), asyncErrorBoundary(create)],
+  update: [
+    asyncErrorBoundary(cardExists),
+    hasProperties(...validProperties),
+    asyncErrorBoundary(update),
+  ],
 };

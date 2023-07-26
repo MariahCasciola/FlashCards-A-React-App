@@ -1,5 +1,6 @@
 const decksService = require("./decks.service");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
+const hasProperties = require("../utils/hasProperties");
 
 async function deckExists(req, res, next) {
   const deck = await decksService.read(req.params.deckId);
@@ -29,6 +30,8 @@ async function read(req, res, next) {
   const data = res.locals.deck;
   return res.json({ data });
 }
+
+const validProperties = ["name", "description"];
 
 async function create(req, res, next) {
   const data = await decksService.create(req.body.data);
@@ -61,7 +64,11 @@ async function destroy(req, res, next) {
 module.exports = {
   list: asyncErrorBoundary(list),
   read: [asyncErrorBoundary(deckExists), asyncErrorBoundary(read)],
-  create: [asyncErrorBoundary(create)],
-  update: [asyncErrorBoundary(deckExists), asyncErrorBoundary(update)],
+  create: [hasProperties(...validProperties), asyncErrorBoundary(create)],
+  update: [
+    hasProperties(...validProperties),
+    asyncErrorBoundary(deckExists),
+    asyncErrorBoundary(update),
+  ],
   destroy: [asyncErrorBoundary(deckExists), asyncErrorBoundary(destroy)],
 };

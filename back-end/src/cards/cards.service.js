@@ -15,4 +15,13 @@ function create(newCard) {
     .then((createdCards) => createdCards[0]);
 }
 
-module.exports = { list, read, create };
+// card_id deckId and body
+function update(updatedCard) {
+  return knex("cards as c")
+    .select("*")
+    .where({ card_id: updatedCard.card_id })
+    .update(updatedCard, "*")
+    .then((updatedCard) => updatedCard[0]);
+}
+
+module.exports = { list, read, create, update };

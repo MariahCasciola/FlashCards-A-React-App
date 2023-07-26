@@ -1,8 +1,12 @@
-const router = require("express").Router();
+const router = require("express").Router({ mergeParams: true });
 const controller = require("./cards.controller");
 const methodNotAllowed = require("../errors/methodNotAllowed");
 
-router.route("/:card_id").get(controller.read).all(methodNotAllowed);
+router
+  .route("/:card_id")
+  .get(controller.read)
+  .put(controller.update)
+  .all(methodNotAllowed);
 
 router
   .route("/")
